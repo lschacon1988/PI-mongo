@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Pokemon from "../componet/Pokemon";
@@ -11,6 +12,7 @@ import s from "../style/card.module.css";
 import load from '../style/loading.module.css'
 import Paginado from "./Paginado";
 import Nav from "./Nav";
+import React from "react";
 
 
 export default function Pokemons(props) {

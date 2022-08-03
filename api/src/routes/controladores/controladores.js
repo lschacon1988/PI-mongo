@@ -1,3 +1,4 @@
+
 require("../../db");
 const Pokemon = require("../../models/Pokemon");
 const Types = require("../../models/Types");
@@ -57,7 +58,7 @@ module.exports = {
       }
       const detali = await models(id);
 
-      if (detali.length) return detali;
+      if (detali.length > 0) return detali;
 
       return { msg: "Pokemon Not Found" };
     } catch (error) {

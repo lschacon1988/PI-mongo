@@ -1,4 +1,4 @@
-
+//@ts-check
 const { Router } = require("express");
 const { creatType } = require("./controladores/controladores");
 const getPokemon = require("./modelRouter/getPkemon")

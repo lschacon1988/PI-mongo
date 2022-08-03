@@ -1,4 +1,5 @@
-import s from "../style/filters.module.css";
+//@ts-check
+import React from "react";
 import { styleSelec } from "../style/style";
 export default function OrderBy({ handleOrderAlf,
   halndelPow }) {

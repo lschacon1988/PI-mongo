@@ -1,7 +1,8 @@
 //@ts-check
 const mongoose = require('mongoose')
 
-  const uri = 'mongodb://127.0.0.1:27017/pokemon'
+// const uri = 'mongodb://127.0.0.1:27017/pokemon'
+const uri = 'mongodb+srv://lschacon1988:luis1988@cluster0.mi7yxnu.mongodb.net/?retryWrites=true&w=majority'
 
 
 

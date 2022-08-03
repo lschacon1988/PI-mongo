@@ -9,8 +9,7 @@ router.use('/', getPokemon)
 
 router.get("/types", async (req, res, next) => {
     try {
-      const type = await creatType();
-      
+      const type = await creatType();      
       res.json(type);
     } catch (error) {
       next(error);

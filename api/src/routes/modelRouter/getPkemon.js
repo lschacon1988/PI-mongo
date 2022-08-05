@@ -9,7 +9,7 @@ const {
 } = require("../controladores/controladores");
 
 const router = Router();
-router.get("pokemons", async (req, res, next) => {
+router.get("/pokemons", async (req, res, next) => {
   const { name } = req.query;
   
   try {

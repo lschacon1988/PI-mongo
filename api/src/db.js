@@ -3,7 +3,7 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 
 
-// const uri = 'mongodb://127.0.0.1:27017/pokemon'
+
 const uri = `mongodb+srv://${process.env.USERDB}:${process.env.PASDB}@cluster0.mi7yxnu.mongodb.net/?retryWrites=true&w=majority&dbname=pokemons`
 
 

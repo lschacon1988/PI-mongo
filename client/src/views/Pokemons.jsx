@@ -12,7 +12,7 @@ import load from "../style/loading.module.css";
 import Paginado from "./Paginado";
 import Nav from "./Nav";
 import React from "react";
-import Container from "@mui/material/core/Container";
+
 
 export default function Pokemons(props) {
   const {
@@ -75,7 +75,7 @@ export default function Pokemons(props) {
   }
   console.log(currentPokemos);
   return (
-    <Container>
+    
       <div className={s.container_home}>
         <Nav
           navigate={handleFilterType}
@@ -113,6 +113,6 @@ export default function Pokemons(props) {
           paginado={paginado}
         />
       </div>
-    </Container>
+    
   );
 }

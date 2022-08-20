@@ -17,7 +17,7 @@ useEffect(() => {
   }, [dispatch]);  
   useEffect(() => {
     dispatch(getpokemonBack());
-  }, [state.length]);
+  }, [dispatch]);
   
   return (
     <div>     

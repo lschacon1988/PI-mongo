@@ -20,7 +20,7 @@ export function setLoading(payload){
 export function getpokemonBack() {
   return async (dispatch) => {
     dispatch(setLoading(true))
-    const response = await axios.get("https://pi-deploy-pokemon.herokuapp.com/pokemons");
+    const response = await axios.get("/pokemons");
     const { data } = response;
     if(data.length>0){
       dispatch(setLoading(false))
@@ -53,7 +53,7 @@ export function getType(){
 }
 export function postPokemon (payload){  
   return async function (dispatch){
-      const response = await axios.post('https://pi-deploy-pokemon.herokuapp.com/pokemons',payload);
+      const response = await axios.post('/pokemons',payload);
       const {data} =response
      
       return dispatch({type: CREATE_POKEMON, payload: data})     

@@ -9,7 +9,7 @@ const {
 } = require("../controladores/controladores");
 
 const router = Router();
-router.get("/pokemons", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   const { name } = req.query;
   
   try {
@@ -24,7 +24,7 @@ router.get("/pokemons", async (req, res, next) => {
     next(error);
   }
 });
-router.get("/pokemons/:idPokemon", async (req, res, next) => {
+router.get("/:idPokemon", async (req, res, next) => {
   const { idPokemon } = req.params;
   try {
     let p = await pokeDetail(idPokemon);
@@ -33,7 +33,7 @@ router.get("/pokemons/:idPokemon", async (req, res, next) => {
     next(error);
   }
 });
-router.post("/pokemons", async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   const { name, hp, types, attack, defense, speed, height, weight, img } =
     req.body;
   try {

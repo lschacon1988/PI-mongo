@@ -5,7 +5,7 @@ const getPokemon = require("./modelRouter/getPkemon")
 
 const router = Router();
 
-router.use('/', getPokemon)
+router.use('/pokemons', getPokemon)
 
 router.get("/types", async (req, res, next) => {
     try {

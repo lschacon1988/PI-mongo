@@ -1,10 +1,11 @@
-//@ts-check
+
 require('dotenv').config()
 const mongoose = require('mongoose')
+const {MONGOOSE_URI}=process.env
 
 
 
-const uri = `mongodb+srv://${process.env.USERDB}:${process.env.PASDB}@cluster0.mi7yxnu.mongodb.net/?retryWrites=true&w=majority&dbname=pokemons`
+const uri = MONGOOSE_URI
 
 
 

@@ -1,8 +1,11 @@
+import { TabContainer } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import s from "../style/landy.module.css"
 
 export default function Home() {
   return (
+    <TabContainer>
+
     <main className={s.home}>
       <h1>Pokemons</h1>
       <section>
@@ -17,5 +20,6 @@ export default function Home() {
         </Link>
       </section>
     </main>
+    </TabContainer>
   );
 }

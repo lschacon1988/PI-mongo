@@ -46,10 +46,29 @@
     cursor: pointer;
     transition: all .5s ease;
     text-decoration: none;
-
+    
 }
-
 .items button:hover{
     background: #f29718;
     color: white;
+}
+.btn{
+   
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    outline: none;
+    background: #4d5061;
+    font-size: 1rem;
+    border: none;
+    color: #f29718;   
+    cursor: pointer;
+    transition: all .5s ease;
+    text-decoration: none;
+
+}
+.btn:hover{
+    background: #f29718;
+    color: white;
+}
+.itemBoot{
+    margin-right: 10px;
 }

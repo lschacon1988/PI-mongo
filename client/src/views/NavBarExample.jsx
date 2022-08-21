@@ -12,12 +12,19 @@ import FilterType from "./FilterType";
 import FilterCreate from "./FilterCreate";
 import OrderBy from "./OrderBy";
 import Search from "./Search";
+import s from "../style/nav.module.css";
 
-const NavBarExample = ({page}) => {
+const NavBarExample = ({ page, navigate, handle, handleOrderBy }) => {
   return (
-    <Navbar  bg="dark" expand="lg">
+    <Navbar bg="dark" expand="lg">
       <Container fluid>
-        <Navbar.Brand as={Link} to='/'>Pokemons</Navbar.Brand>
+        <Navbar.Brand
+          style={{ color: "#f29718", fontSize: "25px" }}
+          as={Link}
+          to="/"
+        >
+          Pokemons
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -25,16 +32,22 @@ const NavBarExample = ({page}) => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link as={Link} to='/pokemons/creat'>Crea tu Pokemon</Nav.Link>
-
-            <FilterCreate/>
-
-            <OrderBy/>
-            
-            <FilterType/>
-            
+            <Nav.Item className={s.itemBoot}>
+              <Button className={s.btn} as={Link} to="/pokemons/creat">
+                Crea un Pokemon
+              </Button>
+            </Nav.Item>
+            <Nav.Item className={s.itemBoot}>
+              <FilterCreate handle={handle} />
+            </Nav.Item>
+            <Nav.Item className={s.itemBoot}>
+              <OrderBy handleOrderBy={handleOrderBy} />
+            </Nav.Item>
+            <Nav.Item className={s.itemBoot}>
+              <FilterType navigate={navigate} />
+            </Nav.Item>
           </Nav>
-         <Search page={page} />
+          <Search page={page} />
         </Navbar.Collapse>
       </Container>
     </Navbar>

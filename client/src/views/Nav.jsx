@@ -4,6 +4,7 @@ import OrderBy from "./OrderBy";
 import Search from "./Search";
 import s from "../style/nav.module.css";
 import { Link } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
 
 export default function Nav({
   navigate,
@@ -15,13 +16,14 @@ export default function Nav({
   return (
     <nav className="navbar navbar-expand-lg bg-dark d-flex p-2">
       <div className="container-fluid">
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
         <label className={s.logo}>
           <Link className={s.link} to="/">
             P
           </Link>
           okemons
         </label>
-              
         <ul className={s.ul}>
           <Link to="/pokemons/creat">
             {" "}
@@ -32,7 +34,7 @@ export default function Nav({
                 data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll"
                 aria-expanded="false"
-              >
+                >
                 Crear un Pokemon
               </button>
             </li>{" "}
@@ -51,6 +53,7 @@ export default function Nav({
             <Search page={page} />
           </li>
         </ul>
+                </Navbar.Collapse>    
       </div>
     </nav>
   );

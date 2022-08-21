@@ -67,21 +67,61 @@ export default function pokemonReducers(
     }
     case ORDER_BY: {
       const allpokemons = state.pokemons;
-      const pokemonOrder =
-        payload === "asc"
-          ? allpokemons.sort((a, b) => {
-              if (a.name > b.name) return 1;
-              if (b.name > a.name) return -1;
-              return 0;
-            })
-          : allpokemons.sort((a, b) => {
-              if (a.name > b.name) return -1;
-              if (b.name > a.name) return 1;
-              return 0;
-            });
+      let pokemonOrder = [];
+      if (payload === "asc") {
+        pokemonOrder = allpokemons.sort((a, b) => {
+          if (a.name > b.name) return 1;
+          if (b.name > a.name) return -1;
+          return 0;
+        });
+      }
+      if (payload === "desc") {
+        pokemonOrder = allpokemons.sort((a, b) => {
+          if (a.name > b.name) return -1;
+          if (b.name > a.name) return 1;
+          return 0;
+        });
+      }
+      if (payload === "max") {
+        pokemonOrder = allpokemons.sort((a, b) => {
+          if (a.attack > b.attack) return -1;
+          if (b.attack > a.attack) return 1;
+          return 0;
+        });
+      }
+      if (payload === "min") {
+        pokemonOrder = allpokemons.sort((a, b) => {
+          if (a.attack > b.attack) return 1;
+          if (b.attack > a.attack) return -1;
+          return 0;
+        });
+      }
+      pokemonOrder = allpokemons;
+
+      // payload === "asc"
+      //   ? allpokemons.sort((a, b) => {
+      //       if (a.name > b.name) return 1;
+      //       if (b.name > a.name) return -1;
+      //       return 0;
+      //     })?
+      //     payload==='dec': allpokemons.sort((a, b) => {
+      //       if (a.name > b.name) return -1;
+      //       if (b.name > a.name) return 1;
+      //       return 0;
+      //     })?
+      //       payload === "max": allpokemons.sort((a, b) => {
+      //       if (a.attack > b.attack) return -1;
+      //       if (b.attack > a.attack) return 1;
+      //       return 0;
+      //     })?
+      //      payload === "min": allpokemons.sort((a, b) => {
+      //       if (a.attack > b.attack) return 1;
+      //       if (b.attack > a.attack) return -1;
+      //       return 0;
+      //     }) : allpokemons
       return {
         ...state,
-        pokemons: payload === "all" ? allpokemons : pokemonOrder,
+        pokemons: pokemonOrder,
       };
     }
     case ORDER_BY_POWER: {
@@ -106,17 +146,17 @@ export default function pokemonReducers(
     case CREATE_POKEMON: {
       return {
         ...state,
-        pokemons: [...state.pokemons, payload]
+        pokemons: [...state.pokemons, payload],
       };
     }
 
-    case 'FILTER_PESO':{
-      const allpokemons = state.pokemonAll
-      const pokemonPeso = allpokemons.filter(e => e.weight >= 800)
-      return{
+    case "FILTER_PESO": {
+      const allpokemons = state.pokemonAll;
+      const pokemonPeso = allpokemons.filter((e) => e.weight >= 800);
+      return {
         ...state,
-        pokemons: pokemonPeso
-      }
+        pokemons: pokemonPeso,
+      };
     }
     default:
       return state;

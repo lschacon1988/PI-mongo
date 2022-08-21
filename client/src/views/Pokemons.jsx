@@ -16,6 +16,7 @@ import React from "react";
 import { Container } from "@mui/system";
 import { useEffect } from "react";
 import NavBarExample from "./NavBarExample";
+import { TabContainer } from "react-bootstrap";
 
 export default function Pokemons(props) {
   const {
@@ -23,19 +24,19 @@ export default function Pokemons(props) {
   } = props;
 
   const dispatch = useDispatch();
-  
+
   const loading = useSelector((state) => state.app.loading);
   const [order, setOrder] = useState("");
   const pokemons = useSelector((state) => state.pokemonReducers.pokemons);
   useEffect(() => {
-  dispatch(getpokemonBack());
-}, [dispatch]);
+    dispatch(getpokemonBack());
+  }, []);
   // PAGINADO
   const [currentPage, setCurrentPage] = useState(1);
   const [limitPage, setLimitpage] = useState(12);
   const indexOfLastPage = currentPage * limitPage;
   const indexOffirstpage = indexOfLastPage - limitPage;
-  const currentPokemos = pokemons.slice(indexOffirstpage, indexOfLastPage);
+  const currentPokemos = pokemons?.slice(indexOffirstpage, indexOfLastPage);
   const next = (e) => {
     e.preventDefault();
     if (currentPokemos.length < 9) {
@@ -70,27 +71,21 @@ export default function Pokemons(props) {
     setCurrentPage(1);
   };
 
-  function handleOderByAlf(e) {
+  function handleOderBy(e) {
     dispatch(ordenBy(e.target.value));
     // setCurrentPage(1);
     setOrder(e.target.value);
   }
-  function handleOderByPow(e) {
-    dispatch(ordenByPower(e.target.value));
-    setOrder(e.target.value);
-  }
-  
+
   return (
+    <TabContainer>
       <div className={s.container_home}>
-        {/* <Nav
+        <NavBarExample
           navigate={handleFilterType}
           page={setCurrentPage}
           handle={handleFilterCreate}
-          handleOrderAlf={handleOderByAlf}
-          halndelPow={handleOderByPow}
-        /> */}
-        <NavBarExample page={setCurrentPage}/>
-    <Container>
+          handleOrderBy={handleOderBy}
+        />
         <div className={s.contenedor}>
           {loading ? (
             <img
@@ -118,7 +113,7 @@ export default function Pokemons(props) {
           limitPage={limitPage}
           paginado={paginado}
         />
-    </Container>
       </div>
+    </TabContainer>
   );
 }

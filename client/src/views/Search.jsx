@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { getPokemonNAME } from "../store/action";
+import  s  from "../style/nav.module.css";
 
 export default function Search({ page }) {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ export default function Search({ page }) {
               aria-label="Search"
               onChange={(e) => handleInputChange(e)}
             />
-            <Button  onClick={(e) => {
+            <Button className={s.btn}  onClick={(e) => {
             onSearch(e);
           }} variant="outline-success">Search</Button>
           </Form>

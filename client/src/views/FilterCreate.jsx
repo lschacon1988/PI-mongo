@@ -3,8 +3,7 @@ import { Form } from "react-bootstrap";
 export default function FilterCreate({ handle }) {
   return (
     <Form.Select
-      style={{ background: "#4d5061", color: "#f29718" }}
-      
+      style={{ background: "#4d5061", color: "#f29718" }}      
       onChange={(e) => handle(e)}
       size="sm"
     >

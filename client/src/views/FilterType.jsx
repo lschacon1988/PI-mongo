@@ -15,9 +15,9 @@ export default function FilterType({ navigate }) {
   return (
     <Form.Select
       size="sm"
-      style={{ background: "#4d5061", color: "#f29718" }}
-      onChange={(e) => navigate(e)}
-      
+      style={{ background: "#4d5061", color: "#f29718"}}
+      onChange={(e) => navigate(e)} 
+          
     >
       <option style={{padding:'2px'}} >Types</option>
       {pokemontype &&

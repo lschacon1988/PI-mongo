@@ -45,7 +45,7 @@ export default function PokemonDetail() {
                   {" "}
                   Altura: {e.height} Peso: {e.weight}
                 </p>
-                <Link to="/home">
+                <Link to="/pokemons">
                   <button>Volver</button>
                 </Link>
                 <article>

@@ -6,7 +6,7 @@ export default function Home() {
     <main className={s.home}>
       <h1>Pokemons</h1>
       <section>
-        <Link to="/home" >
+        <Link to="/pokemons" >
           <a href="#" className={s.btn_neon}>
             <span className={s.span1}></span>
             <span className={s.span2}></span>

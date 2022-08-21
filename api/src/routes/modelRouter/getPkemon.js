@@ -33,7 +33,7 @@ router.get("/:idPokemon", async (req, res, next) => {
     next(error);
   }
 });
-router.post("/", async (req, res, next) => {
+router.post("/creat", async (req, res, next) => {
   const { name, hp, types, attack, defense, speed, height, weight, img } =
     req.body;
   try {

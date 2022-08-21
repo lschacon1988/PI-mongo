@@ -23,7 +23,7 @@ export default function Nav({
         </label>
               
         <ul className={s.ul}>
-          <Link to="/pokemons">
+          <Link to="/pokemons/creat">
             {" "}
             <li className={s.items}>
               <button

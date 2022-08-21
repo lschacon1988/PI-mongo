@@ -4,6 +4,7 @@ import Pokemon from "../componet/Pokemon";
 import {
   filterCreate,
   filterType,
+  getpokemonBack,
   ordenBy,
   ordenByPower,
 } from "../store/action";
@@ -12,7 +13,9 @@ import load from "../style/loading.module.css";
 import Paginado from "./Paginado";
 import Nav from "./Nav";
 import React from "react";
-
+import { Container } from "@mui/system";
+import { useEffect } from "react";
+import NavBarExample from "./NavBarExample";
 
 export default function Pokemons(props) {
   const {
@@ -20,10 +23,13 @@ export default function Pokemons(props) {
   } = props;
 
   const dispatch = useDispatch();
-
+  
   const loading = useSelector((state) => state.app.loading);
   const [order, setOrder] = useState("");
   const pokemons = useSelector((state) => state.pokemonReducers.pokemons);
+  useEffect(() => {
+  dispatch(getpokemonBack());
+}, [dispatch]);
   // PAGINADO
   const [currentPage, setCurrentPage] = useState(1);
   const [limitPage, setLimitpage] = useState(12);
@@ -73,18 +79,18 @@ export default function Pokemons(props) {
     dispatch(ordenByPower(e.target.value));
     setOrder(e.target.value);
   }
-  console.log(currentPokemos);
+  
   return (
-    
       <div className={s.container_home}>
-        <Nav
+        {/* <Nav
           navigate={handleFilterType}
           page={setCurrentPage}
           handle={handleFilterCreate}
           handleOrderAlf={handleOderByAlf}
           halndelPow={handleOderByPow}
-        />
-
+        /> */}
+        <NavBarExample page={setCurrentPage}/>
+    <Container>
         <div className={s.contenedor}>
           {loading ? (
             <img
@@ -112,7 +118,7 @@ export default function Pokemons(props) {
           limitPage={limitPage}
           paginado={paginado}
         />
+    </Container>
       </div>
-    
   );
 }

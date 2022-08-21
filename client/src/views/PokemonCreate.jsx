@@ -100,14 +100,14 @@ export default function PokemonCreate({ history }) {
       weight: 0,
       types: "",
     });
-    push("/home");
+    push("/pokemons");
   }
 
   return (
     <div className={s.body}>
       <div className={s.contenedor}>
         <form className={s.form} onSubmit={(e) => handleSubmite(e)}>
-          <Link to="/home">
+          <Link to="/pokemons">
             <button className={s.btn_submit2}>Volver</button>
           </Link>
           <div className={s.form_header}>

@@ -1,53 +1,42 @@
 //@ts-check
 import React from "react";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { BootstrapInput } from "../style/style";
-export default function OrderBy({ handleOrderAlf,
-  halndelPow }) {
+import { Form } from "react-bootstrap";
+export default function OrderBy({ handleOrderAlf, halndelPow }) {
   return (
-
-     
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-      {/* <BootstrapInput id="demo-customized-textbox" /> */}
+    <>
+      <Form.Select
+        size="sm"
+        style={{ background: "#4d5061", color: "#f29718" }}
       
-      {/* <InputLabel id="demo-select-small">Alphabetica</InputLabel> */}
-      <Select
-        labelId="demo-select-small"
-        id="demo-select-small"        
-        label="Order"
         onChange={(e) => handleOrderAlf(e)}
-        input={<BootstrapInput/>}
-        placeholder='Alphabetica'
       >
-        <MenuItem value="">
-          <em>Order By Alphabetical</em>
-        </MenuItem>        
-        <MenuItem value="asc">A-Z</MenuItem>
-        <MenuItem value="desc">Z-A</MenuItem>
-      </Select>
-      
-      {/* //<InputLabel id="demo-select-small">Order By power</InputLabel> */}
-      
-    <Select
-      style={{color: 'red'}}
-      labelId="demo-select-small"
-      id="demo-select-small"      
-      label="Order"
-      onChange={(e) => halndelPow(e)}
-      input={<BootstrapInput/>}
-      placeholder='power'
+        <option value="all">Order By Alphabetical</option>
+        <option value="asc">A-Z</option>
+        <option value="desc">Z-A</option>
+      </Form.Select>
+      <Form.Select
+        size="sm"
+        style={{ background: "#4d5061", color: "#f29718" }}
+        
+        onChange={(e) => halndelPow(e)}
       >
-        <MenuItem value="">
-          <em>Order By power</em>
-        </MenuItem>        
-        <MenuItem value="max">max</MenuItem>
-        <MenuItem value="min">min</MenuItem>
-      </Select>
-    </FormControl>
-    
-    
+        <option value="default">Order By power</option>
+        <option value="max">max</option>
+        <option value="min">min</option>
+      </Form.Select>
+    </>
+
+    // <div className="d-inline-flex p-2">
+    //   <select className="" aria-label=".form-select-lg example" style={styleSelec} onChange={(e) => handleOrderAlf(e)}>
+    //     <option value="all">Order By Alphabetical</option>
+    //     <option value="asc">A-Z</option>
+    //     <option value="desc">Z-A</option>
+    //   </select>
+    //   <select className="" aria-label=".form-select-lg example" style={styleSelec} onChange={(e) => halndelPow(e)}>
+    //     <option value="default">Order By power</option>
+    //     <option value="max">max</option>
+    //     <option value="min">min</option>
+    //   </select>
+    // </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { getPokemonNAME } from "../store/action";
 
@@ -19,7 +20,20 @@ export default function Search({ page }) {
   };
   return (
     <div>
-      <form className="d-flex" role="search">
+       <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+              onChange={(e) => handleInputChange(e)}
+            />
+            <Button  onClick={(e) => {
+            onSearch(e);
+          }} variant="outline-success">Search</Button>
+          </Form>
+
+      {/* <form className="d-flex" role="search">
         <input
           className="form-control me-2"
           type="search"
@@ -36,7 +50,7 @@ export default function Search({ page }) {
         >
           Buscar
         </button>
-      </form>
+      </form> */}
     </div>
   );
 }

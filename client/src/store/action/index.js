@@ -53,7 +53,7 @@ export function getType(){
 }
 export function postPokemon (payload){  
   return async function (dispatch){
-      const response = await axios.post('/pokemons',payload);
+      const response = await axios.post('/pokemons/creat',payload);
       const {data} =response
      
       return dispatch({type: CREATE_POKEMON, payload: data})     

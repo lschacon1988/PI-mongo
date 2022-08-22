@@ -9,7 +9,7 @@ export default function Home() {
         <h1>Pokemons</h1>
         <section>
           <Link to="/pokemons">
-            <a className={s.btn_neon}>
+            <a href="#" className={s.btn_neon}>
               <span className={s.span1}></span>
               <span className={s.span2}></span>
               <span className={s.span3}></span>

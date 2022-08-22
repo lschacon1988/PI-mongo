@@ -6,7 +6,7 @@ import {
   GET_TYPE,
   NAME_POKEMON,
   ORDER_BY,
-  ORDER_BY_POWER,
+  
 } from "../action/actionType";
 
 const initialState = {
@@ -40,6 +40,7 @@ export default function pokemonReducers(
       };
     }
     case FILTER_TYPE: {
+      /**filta elementos por tipo */
       const allpokemons = state.pokemonAll;
       const typePokemons =
         payload === "all"
@@ -55,6 +56,7 @@ export default function pokemonReducers(
     }
 
     case FILTER_CREATE: {
+      /**filtra solo los elementos si vienen de la DB o de la api */
       const allpokemons = state.pokemonAll;
       const createPokemon =
         payload === "created"
@@ -66,6 +68,7 @@ export default function pokemonReducers(
       };
     }
     case ORDER_BY: {
+      /**comprobar que tipo de ordenamiento se solicita */
       const allpokemons = state.pokemons;
       let pokemonOrder = [];
       if (payload === "asc") {
@@ -98,51 +101,13 @@ export default function pokemonReducers(
       }
       pokemonOrder = allpokemons;
 
-      // payload === "asc"
-      //   ? allpokemons.sort((a, b) => {
-      //       if (a.name > b.name) return 1;
-      //       if (b.name > a.name) return -1;
-      //       return 0;
-      //     })?
-      //     payload==='dec': allpokemons.sort((a, b) => {
-      //       if (a.name > b.name) return -1;
-      //       if (b.name > a.name) return 1;
-      //       return 0;
-      //     })?
-      //       payload === "max": allpokemons.sort((a, b) => {
-      //       if (a.attack > b.attack) return -1;
-      //       if (b.attack > a.attack) return 1;
-      //       return 0;
-      //     })?
-      //      payload === "min": allpokemons.sort((a, b) => {
-      //       if (a.attack > b.attack) return 1;
-      //       if (b.attack > a.attack) return -1;
-      //       return 0;
-      //     }) : allpokemons
+     
       return {
         ...state,
         pokemons: pokemonOrder,
       };
     }
-    case ORDER_BY_POWER: {
-      const allpokemons = state.pokemonAll;
-      const pokemonOrder =
-        payload === "max"
-          ? allpokemons.sort((a, b) => {
-              if (a.attack > b.attack) return -1;
-              if (b.attack > a.attack) return 1;
-              return 0;
-            })
-          : allpokemons.sort((a, b) => {
-              if (a.attack > b.attack) return 1;
-              if (b.attack > a.attack) return -1;
-              return 0;
-            });
-      return {
-        ...state,
-        pokemons: payload === "all" ? allpokemons : pokemonOrder,
-      };
-    }
+    
     case CREATE_POKEMON: {
       return {
         ...state,

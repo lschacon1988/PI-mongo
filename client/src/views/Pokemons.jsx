@@ -6,14 +6,11 @@ import {
   filterType,
   getpokemonBack,
   ordenBy,
-  ordenByPower,
 } from "../store/action";
 import s from "../style/card.module.css";
 import load from "../style/loading.module.css";
 import Paginado from "./Paginado";
-import Nav from "./Nav";
 import React from "react";
-import { Container } from "@mui/system";
 import { useEffect } from "react";
 import NavBarExample from "./NavBarExample";
 import { TabContainer } from "react-bootstrap";
@@ -98,6 +95,7 @@ export default function Pokemons(props) {
           ) : (
             currentPokemos?.map((pokemon) => (
               <Pokemon
+                key={pokemon.id}
                 pokemon={pokemon}
                 // key={pokemon.speed}
                 navigate={handleNavigate}

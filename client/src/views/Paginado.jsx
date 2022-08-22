@@ -24,7 +24,9 @@ export default function Paginado(props) {
               key={num}
             >
               {" "}
-              <a>{num}</a>{" "}
+              <a key={num} href="#">
+                {num}
+              </a>{" "}
             </li>
           ))}
 

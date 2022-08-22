@@ -3,3 +3,4 @@
 - Front-End con React.js y redux y un poco de estilos con css puro y algo de Bootstrap
 
 - si clonan y corren el repo un su PC es necesario hace. < NPM intall >
+- se puede vicitar en [Link a la pagina](https://pi-mongo.vercel.app/)

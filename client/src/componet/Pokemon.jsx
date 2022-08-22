@@ -1,4 +1,3 @@
-import { useState } from "react";
 import s from "../style/card.module.css";
 
 export default function Pokemon(props) {
@@ -35,12 +34,12 @@ export default function Pokemon(props) {
           <img
             className="card-img-top"
             style={{
-              height: "20%",              
+              height: "20%",
               // maxheight: "100%",
               // height: "100%",
               // maxheight: "100% ",
-              position:'relative',
-              bottom:'20px'
+              position: "relative",
+              bottom: "20px",
             }}
             src={
               img

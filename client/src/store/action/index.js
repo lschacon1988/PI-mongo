@@ -66,12 +66,7 @@ export function ordenBy(payload) {
     payload: payload,
   }
 }
-export function ordenByPower(payload) {
-  return {
-    type: ORDER_BY_POWER,
-    payload: payload,
-  }
-}
+
 
 export function filterType(payload) {
   return {

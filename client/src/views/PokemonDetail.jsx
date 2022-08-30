@@ -14,7 +14,7 @@ export default function PokemonDetail() {
   useEffect(() => {
     dispatch(setLoading(true))
     axios
-      .get(`http://localhost:3001/pokemons/${idPokemon}`)
+      .get(`/pokemons/${idPokemon}`)
       .then((response) => {
         dispatch(setLoading(false))
         setState(response.data);

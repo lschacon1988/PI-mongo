@@ -20,7 +20,7 @@ export function setLoading(payload){
 export function getpokemonBack() {
   return async (dispatch) => {
     dispatch(setLoading(true))
-    console.log('que es',await axios.get())
+    
     const response = await axios.get("/pokemons");
     const { data } = response;
     if(data.length>0){
